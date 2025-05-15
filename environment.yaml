@@ -90,7 +90,7 @@ dependencies:
       - dm-tree==0.1.8
       - docker-pycreds==0.4.0
       - easydict==1.9
-      - egl-probe==1.0.2
+      - git+https://github.com/ian-chuang/egl_probe.git
       - einops==0.4.1
       - etils==1.5.2
       - evdev==1.7.1

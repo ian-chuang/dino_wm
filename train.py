@@ -23,6 +23,9 @@ from concurrent.futures import ThreadPoolExecutor
 from metrics.image_metrics import eval_images
 from utils import slice_trajdict_with_t, cfg_to_dict, seed, sample_tensors
 
+
+os.environ["DATASET_DIR"] = "/home/ianchuang/dino_wm/outputs/data"
+
 warnings.filterwarnings("ignore")
 log = logging.getLogger(__name__)
 

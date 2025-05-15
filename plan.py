@@ -21,6 +21,8 @@ from preprocessor import Preprocessor
 from planning.evaluator import PlanEvaluator
 from utils import cfg_to_dict, seed
 
+os.environ["DATASET_DIR"] = "/home/ianchuang/dino_wm/outputs/data"
+
 warnings.filterwarnings("ignore")
 log = logging.getLogger(__name__)
 
