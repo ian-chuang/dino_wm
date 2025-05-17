@@ -1,6 +1,12 @@
 from gym.envs.registration import register
 # from .pointmaze import U_MAZE
 register(
+    id="ian-pusht",
+    entry_point="dino_wm.env.pusht.pusht_env:PushTEnv",
+    max_episode_steps=300,
+    reward_threshold=1.0,
+)
+register(
     id="pusht",
     entry_point="dino_wm.env.pusht.pusht_wrapper:PushTWrapper",
     max_episode_steps=300,
