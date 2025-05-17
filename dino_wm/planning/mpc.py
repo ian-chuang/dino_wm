@@ -3,7 +3,7 @@ import hydra
 import copy
 import numpy as np
 from einops import rearrange, repeat
-from utils import slice_trajdict_with_t
+from dino_wm.utils.utils import slice_trajdict_with_t
 from .base_planner import BasePlanner
 
 

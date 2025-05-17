@@ -3,7 +3,7 @@ import torch
 import imageio
 import numpy as np
 from einops import rearrange, repeat
-from utils import (
+from dino_wm.utils.utils import (
     cfg_to_dict,
     seed,
     slice_trajdict_with_t,

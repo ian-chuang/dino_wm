@@ -15,11 +15,11 @@ from pathlib import Path
 from einops import rearrange
 from omegaconf import OmegaConf, open_dict
 
-from env.venv import SubprocVectorEnv
-from custom_resolvers import replace_slash
-from preprocessor import Preprocessor
-from planning.evaluator import PlanEvaluator
-from utils import cfg_to_dict, seed
+from dino_wm.env.venv import SubprocVectorEnv
+from dino_wm.utils.custom_resolvers import replace_slash
+from dino_wm.utils.preprocessor import Preprocessor
+from dino_wm.planning.evaluator import PlanEvaluator
+from dino_wm.utils.utils import cfg_to_dict, seed
 
 os.environ["DATASET_DIR"] = "/home/ianchuang/dino_wm/outputs/data"
 
@@ -190,7 +190,7 @@ class PlanWorkspace:
         )
 
         # optional: assume planning horizon equals to goal horizon
-        from planning.mpc import MPCPlanner
+        from dino_wm.planning.mpc import MPCPlanner
         if isinstance(self.planner, MPCPlanner):
             self.planner.sub_planner.horizon = cfg_dict["goal_H"]
             self.planner.n_taken_actions = cfg_dict["goal_H"]
@@ -354,6 +354,10 @@ class PlanWorkspace:
 
 def load_ckpt(snapshot_path, device):
     with snapshot_path.open("rb") as f:
+        #ian-chuang
+        import sys
+        import dino_wm.models as dino_models
+        sys.modules['models'] = dino_models  # Redirect "models" to "dino_wm.models"
         payload = torch.load(f, map_location=device)
     loaded_keys = []
     result = {}
@@ -495,7 +499,7 @@ def planning_main(cfg_dict):
     return logs
 
 
-@hydra.main(config_path="conf", config_name="plan")
+@hydra.main(config_path="../conf", config_name="plan")
 def main(cfg: OmegaConf):
     with open_dict(cfg):
         cfg["saved_folder"] = os.getcwd()

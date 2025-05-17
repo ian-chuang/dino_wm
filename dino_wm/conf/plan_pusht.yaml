@@ -35,17 +35,17 @@ n_plot_samples: 10
 debug_dset_init: False
 
 objective:
-  _target_: planning.objectives.create_objective_fn
+  _target_: dino_wm.planning.objectives.create_objective_fn
   alpha: 1
   base: 2
   mode: last
 
 planner:
-  _target_: planning.mpc.MPCPlanner
+  _target_: dino_wm.planning.mpc.MPCPlanner
   max_iter: null 
   n_taken_actions: 5
   sub_planner:
-    target: planning.cem.CEMPlanner
+    target: dino_wm.planning.cem.CEMPlanner
     horizon: 5
     topk: 30
     num_samples: 300

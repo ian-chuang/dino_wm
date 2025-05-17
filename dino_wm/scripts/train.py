@@ -815,7 +815,7 @@ class Trainer:
         )
 
 
-@hydra.main(config_path="conf", config_name="train")
+@hydra.main(config_path="../conf", config_name="train")
 def main(cfg: OmegaConf):
     trainer = Trainer(cfg)
     trainer.run()

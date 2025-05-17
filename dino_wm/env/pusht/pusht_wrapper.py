@@ -1,8 +1,8 @@
 import os
 import numpy as np
 import gym
-from env.pusht.pusht_env import PushTEnv
-from utils import aggregate_dct
+from dino_wm.env.pusht.pusht_env import PushTEnv
+from dino_wm.utils.utils import aggregate_dct
 
 class PushTWrapper(PushTEnv):
     def __init__(

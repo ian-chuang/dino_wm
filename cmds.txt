@@ -1,3 +1,5 @@
 python train.py --config-name train.yaml env=pusht frameskip=5 num_hist=3
 
 python plan.py --config-name plan_pusht.yaml model_name=pusht ckpt_base_path=/home/ianchuang/dino_wm/outputs/checkpoints
+
+pip install git+https://github.com/ian-chuang/gym-pusht.git

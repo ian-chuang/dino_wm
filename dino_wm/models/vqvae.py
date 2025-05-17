@@ -4,7 +4,7 @@ from torch.nn import functional as F
 
 import sys
 sys.path.append('..')
-import distributed_fn as dist_fn
+import dino_wm.distributed_fn as dist_fn
 from einops import rearrange
 
 # Copyright 2018 The Sonnet Authors. All Rights Reserved.

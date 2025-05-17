@@ -2,7 +2,7 @@ import torch
 import numpy as np
 from einops import rearrange, repeat
 from .base_planner import BasePlanner
-from utils import move_to_device
+from dino_wm.utils.utils import move_to_device
 
 
 class CEMPlanner(BasePlanner):
